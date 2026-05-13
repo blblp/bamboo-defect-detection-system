@@ -156,9 +156,9 @@ class SerialWorker(QThread):
             try:
                 self.client_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                 self.client_sock.connect(('127.0.0.1', 8888))
-                self.log_signal.emit(f"✅ 成功连接到边缘推理核心！")
+                self.log_signal.emit(f"成功连接到边缘推理核心！")
             except Exception as e:
-                self.log_signal.emit(f"❌ 连接失败 ({e})")
+                self.log_signal.emit(f"连接失败 ({e})")
                 self.is_running = False
                 return
 
@@ -505,6 +505,6 @@ if __name__ == "__main__":
     if os.environ.get("DISPLAY") is None: os.environ["DISPLAY"] = ":0"
     app = QApplication(sys.argv)
     ui = Main_ui()
-    ui.setWindowTitle("竹片极速四摄系统 (生产线部署版)")
+    ui.setWindowTitle("竹片极速四摄系统 ")
     ui.show()
     sys.exit(app.exec_())
