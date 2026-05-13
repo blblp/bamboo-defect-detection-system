@@ -4,10 +4,10 @@ import numpy as np
 
 # ======================== 配置区 ========================
 # 原始数据集路径
-INPUT_DIR = "/media/jfyang/软件/wxn/bamboo_dataset_3class2_noblack"
+INPUT_DIR = "/media/软件/wxn/bamboo_dataset_3class2_noblack"
 
 # 自动生成的新数据集路径
-OUTPUT_DIR = "/media/jfyang/软件/wxn/bamboo_dataset_3class2"
+OUTPUT_DIR = "/media/软件/wxn/bamboo_dataset_3class2"
 
 # YOLO 模型期待的正方形尺寸
 TARGET_SIZE = 256
@@ -76,7 +76,7 @@ def main():
                     
                     # 每处理 500 张打印一次进度
                     if processed_count % 500 == 0:
-                        print(f"⏳ 已处理 {processed_count} 张图片...")
+                        print(f" 已处理 {processed_count} 张图片...")
 
     print("-" * 50)
     print(f"共计为 {processed_count} 张图片添加了工业级黑边。")
