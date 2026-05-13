@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # 运行环境：Jetson Nano (边缘计算设备)
-# 功能：双分类引擎调度 + 定向竹节检测 (仅前两路) + TensorRT 极限加速
+# 功能：双分类引擎调度 + 定向竹节检测 (仅前两路) + TensorRT 加速
 
 import tensorrt as trt
 import pycuda.driver as cuda
@@ -13,13 +13,13 @@ import sys
 import os
 
 # ----------------- 核心配置区 -----------------
-# ⚠️ 1. 正反面分类引擎 (用于相机 1, 2)
+#  1. 正反面分类引擎 (用于相机 1, 2)
 TOP_CLS_ENGINE_PATH = "/home/jetson1101/bamboo/UI/top_exp2.engine"
 
-# ⚠️ 2. 侧面分类引擎 (用于相机 3, 4)
+#  2. 侧面分类引擎 (用于相机 3, 4)
 SIDE_CLS_ENGINE_PATH = "/home/jetson1101/bamboo/UI/side_exp3.engine"
 
-# ⚠️ 3. 竹节目标检测引擎 (仅用于相机 1, 2)
+# ⚠️3. 竹节目标检测引擎 (仅用于相机 1, 2)
 DET_ENGINE_PATH = "/home/jetson1101/bamboo/UI/zhujie_det.engine"
 
 CLASS_ID_OK = 1
@@ -123,11 +123,11 @@ def start_server():
         s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         s.bind((HOST, PORT))
         s.listen(1)
-        print(f"\n🚀 TRT 二阶段级联服务(多工位协同版)已启动！端口 {PORT}")
+        print(f"\n TRT 二阶段级联服务(多工位协同版)已启动！端口 {PORT}")
 
         while True:
             conn, addr = s.accept()
-            print(f"✅ UI 已连接: {addr}")
+            print(f" UI 已连接: {addr}")
 
             with conn:
                 while True:
