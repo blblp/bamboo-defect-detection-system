@@ -5,7 +5,7 @@ def export_to_tensorrt():
     print(" 开始转换模型为 TensorRT engine 格式...")
 
     # 1. 加载训练好的 pt 模型
-    model_path = "/media/jfyang/软件/wxn/bamboo/bamboo_models/2class/exp2/weights/best.pt"
+    model_path = "/media/软件/wxn/bamboo/bamboo_models/2class/exp2/weights/best.pt"
     model = YOLO(model_path)
 
     # 2. 执行导出操作
